@@ -39,5 +39,6 @@ Route::middleware('auth:sanctum')->group(function (){
 
     Route::get('/motor', [MotorController::class, 'index']);
     Route::resource('/formulir', FormulirController::class)->except('edit','store');
+    Route::post('/formulir', [FormulirController::class, 'store']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });

@@ -51,6 +51,7 @@ class FormulirController extends Controller
         $nama_motor = Motor::where('id', $id_motor)->value('nama_motor');
 
         $table = formulir::create([
+            "id_motor" => $id_motor,
             "nama" => $user_name,
             "email" => $user_email,
             "no_hp" => $user_nohp,
@@ -58,7 +59,6 @@ class FormulirController extends Controller
             "tanggal_sewa" => $request->tanggal_sewa,
             "lokasi_pengantaran" => $request->lokasi_pengantaran,
             "lokasi_pengembalian" => $request->lokasi_pengembalian,
-            "id_motor" => $id_motor,
             "nama_motor" => $nama_motor,
 
         ]);
