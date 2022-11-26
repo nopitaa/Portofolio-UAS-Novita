@@ -33,11 +33,11 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::resource('/formulir', FormulirController::class)->except('edit','show','delete')->middleware('admin');
     Route::resource('/motor', MotorController::class)->except('edit','store','delete')->middleware('admin');
     Route::post('/motor', [MotorController::class, 'store'])->middleware('admin');
-    Route::get('/formulir', [FormulirController::class, 'store'])->middleware('admin');
+    Route::get('/formulir', [FormulirController::class, 'index'])->middleware('admin');
     Route::get('/formulir/{id}', [FormulirController::class, 'show'])->middleware('admin');
-
+    
 
     Route::get('/motor', [MotorController::class, 'index']);
-    Route::post('/formulir', [FormulirController::class, 'store']);
+    Route::resource('/formulir', FormulirController::class)->except('edit','store');
     Route::post('/logout', [AuthController::class, 'logout']);
 });
